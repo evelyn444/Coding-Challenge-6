@@ -41,9 +41,19 @@ function calculateTotalHours (name){
 
     if (employee){
         let totalHours = employee.shifts.reduce((total, shift) => total + shift.hours, 0);
-        console.log (`${employee} has worked ${totalHours}`);
+        console.log (`${employee} has worked ${totalHours}`); //calculates total hours worked (could not get it to stop giving me an error) :(
         return totalHours;
     }
 }
 calculateTotalHours('John');
 
+// Task 5: Create a Function to List Employees with Free Days
+function listAvailableEmployees(day) {
+    console.log (`Employee available on ${day}:`);
+    const isAvailable = employees.find(shift => shift.day === day);
+    employees.forEach(employee => {
+        if (isAvailable){
+            console.log (employee.name);
+        } // logs employee name if they are available that day
+    });
+} listAvailableEmployees ('Monday'); 
